@@ -1,0 +1,39 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+	<style name="RoundedButton" parent="Widget.MaterialComponents.Button">
+		<item name="cornerRadius">20dp</item>
+		<item name="android:elevation">10dp</item>
+	</style>
+
+	<style name="RoundedButtonS" parent="Widget.MaterialComponents.Button">
+		<item name="cornerRadius">20dp</item>
+		<item name="android:elevation">10dp</item>
+	</style>
+
+	<style name="RoundedButtonA" parent="Widget.MaterialComponents.Button">
+		<item name="cornerRadius">20dp</item>
+		<item name="android:elevation">10dp</item>
+	</style>
+
+	<style name="RoundedButton2" parent="Widget.MaterialComponents.Button">
+		<item name="cornerRadius">20dp</item>
+		<item name="android:elevation">10dp</item>
+		<item name="backgroundTint">#EEEEEE</item>
+		<item name="strokeWidth">2dp</item>
+		<item name="strokeColor">#C62FF8</item>
+	</style>
+
+	<style name="RoundedButton3" parent="Widget.MaterialComponents.Button">
+		<item name="cornerRadius">40dp</item>
+		<item name="android:elevation">10dp</item>
+	</style>
+
+</resources>

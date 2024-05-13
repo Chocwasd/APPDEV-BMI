@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:layout_width="47dp"
+        android:layout_height="47dp"
+        android:id="@+id/imageButtonBack"
+        android:src="@drawable/backbutton"
+        android:padding="2dp"
+        android:scaleType="centerCrop"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:backgroundTint="#EEEEEE"/>
+
+    <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="About Us"
+         android:layout_toRightOf="@+id/imageButtonBack"
+         android:layout_marginTop="43dp"
+         android:layout_marginLeft="30dp"
+         android:textStyle="bold"
+    android:textSize="30dp"
+        android:textColor="@android:color/black"/>
+
+    <androidx.cardview.widget.CardView
+      android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:layout_margin="30dp"
+        android:layout_below="@+id/imageButtonBack"
+      android:cardElevation="20dp"
+        android:radius="8dp">
+
+    <ImageView
+        android:layout_width="160dp"
+        android:layout_height="170dp"
+        android:src="@drawable/john"
+        android:scaleType="fitCenter"
+        android:id="@+id/imgJohn"/>
+
+</androidx.cardview.widget.CardView>
+          
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=
+        "        JOHN CHRIS
+        PARDO"
+        android:textColor="@android:color/black"
+        android:id="@+id/txtJohn"
+        android:layout_toRightOf="@+id/imageButtonBack"
+        android:layout_marginTop="163dp"
+        android:textStyle="bold"
+         android:layout_marginLeft="105dp"
+        android:textSize="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text= "CS601"
+        android:textColor="@android:color/black"
+        android:id="@+id/txtJohn"
+        android:layout_toRightOf="@+id/imageButtonBack"
+        android:layout_marginTop="223dp"
+         android:layout_marginLeft="148dp"
+        android:gravity="center"
+        android:textSize="20dp"/>
+
+</RelativeLayout>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE">
+
+    <TextView
+        android:layout_width="158dp"
+        android:layout_height="41dp"
+        android:text="BMI RESULT"
+        android:layout_gravity="center"
+        android:textSize="25dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="32dp"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="289dp"
+            android:layout_height="289dp"
+            android:indeterminate="false"
+            android:layout_marginStart="95dp"
+            android:layout_centerInParent="true"
+            android:padding="25dp"
+            android:progressDrawable="@drawable/circular_progress_bar"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:progress="0"    
+            android:max="100"
+            android:layout_gravity="end"/>
+
+        <TextView
+            android:id="@+id/textViewProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00.0"
+            android:textSize="62dp"
+            android:textColor="@android:color/black"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="303dp"
+        android:layout_height="30dp"
+        android:id="@+id/editTextResult"
+        android:text="You have Underweight body weight!"
+        android:autoSizeTextType="uniform"
+        android:textSize="20dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="50dp"
+        />
+
+    <Button
+        android:layout_width="293dp"
+        android:layout_height="84dp"
+        android:layout_gravity="center"
+        
+        android:text="Details"
+        android:textColor="#000000"
+        android:backgroundTint="#EEEEEE"
+        android:textSize="23dp"
+        android:layout_marginTop="100dp"
+        android:textAllCaps="false"
+        android:id="@+id/btnDetails"
+        style="@style/RoundedButton"/>
+
+</LinearLayout>
