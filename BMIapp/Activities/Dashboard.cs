@@ -25,7 +25,7 @@ namespace BMIapp
 
         TextView username;
         ImageButton imageBtnEnterCalculator;
-        ImageButton imageButtonSettings;
+        ImageButton imageButtonSettings, imageButtonLog;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -36,12 +36,21 @@ namespace BMIapp
             username = FindViewById<TextView>(Resource.Id.userName);
             imageBtnEnterCalculator = FindViewById<ImageButton>(Resource.Id.imageButtonCalculate);
             imageButtonSettings = FindViewById<ImageButton>(Resource.Id.imageButtonSettings);
+            imageButtonLog = FindViewById<ImageButton>(Resource.Id.imageButtonLog);
+
 
             imageBtnEnterCalculator.Click += ImageBtnEnterCalculator_Click;
             imageButtonSettings.Click += ImageButtonSettings_Click;
+            imageButtonLog.Click += ImageButtonLog_Click;
             RetrieveUsernameFromFirestore();
 
 
+        }
+
+        private void ImageButtonLog_Click(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(Track));
+            StartActivity(intent);
         }
 
         private void ImageButtonSettings_Click(object sender, EventArgs e)
@@ -108,6 +117,11 @@ namespace BMIapp
             intent.PutExtra("USERNAME_EXTRA", usernameValue);
             StartActivity(intent);
             
+        }
+
+        public override void OnBackPressed()
+        {
+            // Do nothing when the back button is pressed
         }
     }
 }

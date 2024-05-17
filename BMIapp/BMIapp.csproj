@@ -64,13 +64,19 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\AboutUs.cs" />
     <Compile Include="Activities\Calculator.cs" />
     <Compile Include="Activities\Dashboard.cs" />
     <Compile Include="Activities\Details.cs" />
     <Compile Include="Activities\MainActivity.cs" />
     <Compile Include="Activities\ResultActivity.cs" />
     <Compile Include="Activities\SettingsPage.cs" />
+    <Compile Include="Activities\Track.cs" />
+    <Compile Include="Adaptor\ResultsAdapter.cs" />
     <Compile Include="Common\FirebaseRepository.cs" />
+    <Compile Include="Common\JavaObjectWrapper.cs" />
+    <Compile Include="Common\ResultModel.cs" />
+    <Compile Include="Common\UserResult.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Activities\SignInActivity.cs" />
@@ -270,6 +276,10 @@
     <AndroidResource Include="Resources\drawable\edrian.jpg" />
     <AndroidResource Include="Resources\drawable\john.jpg" />
     <AndroidResource Include="Resources\drawable\morpehus.jpg" />
+    <AndroidResource Include="Resources\layout\item_result.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\card_border.xml" />
     <Content Include="Resources\layout\SignIn1.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

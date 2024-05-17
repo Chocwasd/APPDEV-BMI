@@ -75,6 +75,7 @@ namespace BMIapp.Activities
             // Calculate BMI using the formula: BMI = weight (kg) / (height (m))^2
             double bmi = weight / (heightInMeters * heightInMeters);
             return bmi;
+
         }
 
         private void UpdateProgress()

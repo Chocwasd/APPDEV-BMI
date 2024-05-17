@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using static Xamarin.Essentials.Platform;
+using Intent = Android.Content.Intent;
 
 namespace BMIapp.Activities
 {
@@ -20,7 +21,8 @@ namespace BMIapp.Activities
 
         ImageButton btnAboutus;
         ImageButton btnRateUs;
-        ImageButton btnSignOut;
+        ImageButton btnSignOut, btnHome;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -31,15 +33,24 @@ namespace BMIapp.Activities
             btnAboutus = FindViewById<ImageButton>(Resource.Id.imageButtonAboutUs);
             btnRateUs = FindViewById<ImageButton>(Resource.Id.imageButtonRateUs);
             btnSignOut = FindViewById<ImageButton>(Resource.Id.imageButtonSignOut);
+            btnHome = FindViewById<ImageButton>(Resource.Id.imageButtonHome);
 
             btnSignOut.Click += BtnSignOut_Click;
             btnRateUs.Click += BtnRateUs_Click;
             btnAboutus.Click += BtnAboutus_Click;
+            btnHome.Click += BtnHome_Click;
+        }
+
+        private void BtnHome_Click(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(this, typeof(Dashboard));
+            StartActivity(intent);
         }
 
         private void BtnAboutus_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Intent intent = new Intent(this, typeof(AboutUs));
+            StartActivity(intent);
         }
 
         private void BtnRateUs_Click(object sender, EventArgs e)

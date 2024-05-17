@@ -1,72 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageButton
-        android:layout_width="47dp"
-        android:layout_height="47dp"
-        android:id="@+id/imageButtonBack"
-        android:src="@drawable/backbutton"
-        android:padding="2dp"
-        android:scaleType="centerCrop"
-        android:layout_marginTop="40dp"
-        android:layout_marginLeft="20dp"
-        android:backgroundTint="#EEEEEE"/>
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="About Us"
-         android:layout_toRightOf="@+id/imageButtonBack"
-         android:layout_marginTop="43dp"
-         android:layout_marginLeft="30dp"
-         android:textStyle="bold"
-    android:textSize="30dp"
-        android:textColor="@android:color/black"/>
+        <ImageButton
+            android:layout_width="47dp"
+            android:layout_height="47dp"
+            android:id="@+id/imageButtonBack"
+            android:src="@drawable/backbutton"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            android:backgroundTint="#EEEEEE"/>
 
-    <androidx.cardview.widget.CardView
-      android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:layout_margin="30dp"
-        android:layout_below="@+id/imageButtonBack"
-      android:cardElevation="20dp"
-        android:radius="8dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Us"
+            android:layout_toRightOf="@+id/imageButtonBack"
+            android:layout_marginTop="43dp"
+            android:layout_marginLeft="30dp"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="@android:color/black"/>
 
-    <ImageView
-        android:layout_width="160dp"
-        android:layout_height="170dp"
-        android:src="@drawable/john"
-        android:scaleType="fitCenter"
-        android:id="@+id/imgJohn"/>
 
-</androidx.cardview.widget.CardView>
-          
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=
-        "        JOHN CHRIS
-        PARDO"
-        android:textColor="@android:color/black"
-        android:id="@+id/txtJohn"
-        android:layout_toRightOf="@+id/imageButtonBack"
-        android:layout_marginTop="163dp"
-        android:textStyle="bold"
-         android:layout_marginLeft="105dp"
-        android:textSize="20dp"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text= "CS601"
-        android:textColor="@android:color/black"
-        android:id="@+id/txtJohn"
-        android:layout_toRightOf="@+id/imageButtonBack"
-        android:layout_marginTop="223dp"
-         android:layout_marginLeft="148dp"
-        android:gravity="center"
-        android:textSize="20dp"/>
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="170dp"
+            android:src="@drawable/john"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="110dp"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/imgJohn"/>
 
-</RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JOHN CHRIS PARDO"
+           android:gravity="center"
+            android:textColor="@android:color/black"
+            android:id="@+id/txtJohn"
+            android:layout_toRightOf="@+id/imageButtonBack"
+            android:layout_marginTop="163dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="135dp"
+            android:textSize="20dp"
+            android:layout_marginRight="44.8dp" />
+
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="170dp"
+            android:src="@drawable/edrian"
+            android:layout_below="@+id/imgJohn"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/img1"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="EDRIAN VISAGAS"
+            android:textColor="@android:color/black"
+            android:id="@+id/txt1"
+            android:layout_toRightOf="@+id/imageButtonBack"
+            android:layout_marginTop="343dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="155dp"
+            android:textSize="20dp"
+            android:layout_marginRight="44.8dp" />
+
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="170dp"
+            android:src="@drawable/britni"
+            android:layout_below="@+id/img1"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/img2"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BRITNI UY"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:id="@+id/txt2"
+            android:layout_below="@+id/txt1"
+            android:layout_toRightOf="@+id/imageButtonBack"
+            android:layout_marginTop="173dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="165dp"
+            android:textSize="20dp"
+            android:layout_marginRight="44.8dp" />
+
+
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="170dp"
+            android:src="@drawable/morpehus"
+            android:layout_below="@+id/img2"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="30dp"
+            android:id="@+id/img3"/>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MORPHEOUS BELARMINO"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:id="@+id/txt3"
+            android:layout_below="@+id/txt2"
+            android:layout_toRightOf="@+id/imageButtonBack"
+            android:layout_marginTop="143dp"
+            android:textStyle="bold"
+            android:layout_marginLeft="125dp"
+            android:textSize="20dp"
+            android:layout_marginRight="44.8dp" />
+
+
+
+
+
+    </RelativeLayout>
+
+</ScrollView>

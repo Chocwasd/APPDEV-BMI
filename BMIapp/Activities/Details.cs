@@ -6,6 +6,9 @@ using Android.Util;
 using Android.Views;
 using Android.Widget;
 using AndroidX.AppCompat.App;
+using DevConnect.Common;
+using Firebase.Firestore;
+using Java.Util;
 using Javax.Security.Auth;
 using System;
 using System.Collections.Generic;
@@ -20,7 +23,7 @@ namespace BMIapp.Activities
         TextView textViewBMI, textViewBMIcategory;
         Button btnSaveResult;
         double bmi;
-        float height, weight;
+        double height, weight;
         int age;
         string gender;
 
@@ -30,12 +33,13 @@ namespace BMIapp.Activities
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.Details);
 
-            // Retrieve data passed from Calculator activity
-            height = Intent.GetFloatExtra("height_value", 0);
-            weight = Intent.GetFloatExtra("weight_value", 0);
+            // Retrieve data passed from previous activity
+            height = Intent.GetDoubleExtra("height_value", 0);
+            weight = Intent.GetDoubleExtra("weight_value", 0);
             age = Intent.GetIntExtra("age_value", 0);
             gender = Intent.GetStringExtra("gender_value");
-            bmi = Intent.GetDoubleExtra("bmi_value", 0); // Corrected to GetDoubleExtra
+            bmi = Intent.GetDoubleExtra("bmi_value", 0);
+
 
             Log.Debug("DetailsActivity", $"Height: {height}, Weight: {weight}, Age: {age}, Gender: {gender}, BMI: {bmi}");
 
@@ -46,8 +50,40 @@ namespace BMIapp.Activities
 
             textViewBMI.Text = bmi.ToString("00.00");
 
+            btnSaveResult.Click += BtnSaveResult_Click;
             // Call the method to categorize BMI
             Categorized();
+        }
+
+        private void BtnSaveResult_Click(object sender, EventArgs e)
+        {
+            // Get the current date
+            DateTime currentDate = DateTime.Now;
+
+            // Format the date as a string (excluding the time)
+            string dateString = currentDate.ToString("yyyy-MM-dd");
+
+            // Create a HashMap to store user result data
+            HashMap userResultData = new HashMap();
+            userResultData.Put("Height", height);
+            userResultData.Put("Weight", weight);
+            userResultData.Put("Age", age);
+            userResultData.Put("Gender", gender);
+            userResultData.Put("BMI", bmi);
+            userResultData.Put("Date", dateString); // Add date to HashMap
+
+            // Access Firestore database
+            FirebaseFirestore db = FirebaseRepository.GetFirebaseFirestore();
+
+            // Reference to the collection where user results will be stored
+            CollectionReference resultsCollectionRef = db.Collection("user_results").Document(FirebaseRepository.getFirebaseAuth().CurrentUser.Uid).Collection("results");
+
+            // Create a new document reference and set the user result data
+            DocumentReference resultDocRef = resultsCollectionRef.Document();
+            resultDocRef.Set(userResultData);
+
+            // Show a toast message indicating successful saving
+            Toast.MakeText(this, "Result saved successfully", ToastLength.Short).Show();
         }
 
         private void Categorized()

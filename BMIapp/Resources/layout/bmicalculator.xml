@@ -47,14 +47,16 @@
             android:layout_width="139dp"
             android:layout_height="149dp"
             android:background="@drawable/male"
-            android:layout_marginLeft="40dp"/>
+            android:layout_marginLeft="40dp"
+                android:tag="male"/>
 
         <RadioButton
             android:id="@+id/radioButtonFemale"
             android:layout_width="139dp"
             android:layout_height="149dp"
             android:background="@drawable/female"
-            android:layout_marginLeft="30dp"/>
+            android:layout_marginLeft="30dp"
+                android:tag="Female"/>
 
      </RadioGroup>
 

@@ -1,0 +1,80 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    android:background="@drawable/card_border">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/textViewBMI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BMI: "
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textViewHeight"
+            android:layout_toRightOf="@+id/textViewBMI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Height: "
+            android:layout_marginLeft="50dp"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textViewWeight"
+            android:layout_below="@+id/textViewCategory"
+            android:layout_toRightOf="@+id/textViewBMI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Weight:"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textViewCategory"
+            android:layout_toRightOf="@+id/textViewBMI"
+            android:layout_below="@+id/textViewHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category: "
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="45dp"
+            android:textSize="15sp" />
+        
+        <TextView
+            android:id="@+id/textViewAgee"
+           android:layout_below="@id/textViewWeight"
+            android:layout_toRightOf="@+id/textViewBMI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Age: "
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/textViewDatee"
+            android:layout_below="@+id/textViewBMI"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date: "
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:textSize="15sp" />
+
+
+
+       
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

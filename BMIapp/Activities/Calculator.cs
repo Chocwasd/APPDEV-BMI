@@ -67,11 +67,10 @@ namespace BMIapp
 
         private void ButtonCalculate_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(editTextAge.Text) ||
-                string.IsNullOrEmpty(editTextHeight.Text) ||
-                string.IsNullOrEmpty(editTextWeight.Text))
-            {
-                Toast.MakeText(this, "Make sure to Input the Correct Value", ToastLength.Short).Show();
+             if (string.IsNullOrEmpty(editTextAge.Text) || string.IsNullOrEmpty(editTextHeight.Text) || string.IsNullOrEmpty(editTextWeight.Text) || radioGroupGender.CheckedRadioButtonId == -1)
+    {
+                Toast.MakeText(this, "Please fill in all fields", ToastLength.Short).Show();
+                return;
             }
 
             // Get height, weight, and age values from EditText fields
@@ -132,8 +131,8 @@ namespace BMIapp
             // Find the radio button by ID
             RadioButton selectedRadioButton = FindViewById<RadioButton>(selectedRadioButtonId);
 
-            // Get the text of the selected radio button (i.e., the selected gender)
-            string selectedGender = selectedRadioButton.Text;
+            // Get the tag of the selected radio button (i.e., the selected gender)
+            string selectedGender = selectedRadioButton.Tag.ToString();
 
             return selectedGender;
         }
