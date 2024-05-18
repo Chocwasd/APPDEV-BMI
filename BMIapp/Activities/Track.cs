@@ -97,6 +97,8 @@ namespace BMIapp.Activities
                     };
                     resultsList.Add(result);
                 }
+                // Sort the list by date in descending order (newest first)
+                resultsList.Sort((x, y) => DateTime.Compare(DateTime.Parse(y.Date), DateTime.Parse(x.Date)));
 
                 adapter.NotifyDataSetChanged();
             }))

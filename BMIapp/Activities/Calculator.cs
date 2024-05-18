@@ -73,7 +73,8 @@ namespace BMIapp
             builder.SetMessage("To get accurate results, please ensure to measure your height and weight properly:\n\n" +
                                "1. Stand straight and measure your height without shoes.\n" +
                                "2. Use a calibrated scale to measure your weight.\n" +
-                               "3. Record your measurements in the fields provided.");
+                               "3. Record your measurements in the fields provided.\n" +
+                               "4. VERY IMPORTANT! ONLY MEASURE YOUR BMI ONCE PER DAY OR WEEK.");
             builder.SetPositiveButton("OK", (sender, e) => { });
             builder.Show();
         }

@@ -84,6 +84,8 @@ namespace BMIapp.Activities
 
             // Show a toast message indicating successful saving
             Toast.MakeText(this, "Result saved successfully", ToastLength.Short).Show();
+            Intent intent = new Intent(this, typeof(Track));
+            StartActivity(intent);
         }
 
         private void Categorized()

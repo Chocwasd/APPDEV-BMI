@@ -69,7 +69,7 @@ namespace BMIapp
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.SetTitle("Disclaimer");
-            builder.SetMessage("This app is for educational purposes only. Please consult with a healthcare provider for any health-related advice.");
+            builder.SetMessage("This app is for educational purposes only. Please consult with a healthcare provider for any health-related advice.\n\n -GROUP 6");
             builder.SetPositiveButton("OK", (sender, e) =>
             {
                 // Update the shared preferences to indicate that the dialog has been shown
