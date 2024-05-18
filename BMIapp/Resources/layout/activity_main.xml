@@ -41,6 +41,7 @@
         android:layout_gravity="center"
         android:id="@+id/btnGetStarted"
         android:text="Sign In"
+        android:padding="32px"
         android:textSize="20dp"
         android:layout_marginTop="30dp"
         android:textAllCaps="false"
@@ -54,9 +55,20 @@
         android:text="Create an Account"
         android:textColor="#C62FF8"
         android:textSize="20dp"
+        android:padding="32px"
         android:layout_marginTop="8dp"
         android:textAllCaps="false"
         style="@style/RoundedButton2"
         />
-        
+
+        <TextView
+        android:layout_width="332dp"
+        android:layout_height="23dp"
+        android:layout_gravity="center"
+        android:text="version 1.1 Group 6"
+        android:textSize="15dp"
+        android:gravity="center"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:textStyle="italic"/>
 </LinearLayout>

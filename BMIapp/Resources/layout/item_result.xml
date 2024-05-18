@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="BMI: "
             android:textColor="@android:color/black"
-            android:textSize="20sp" />
+            android:textSize="25sp" />
 
         <TextView
             android:id="@+id/textViewHeight"
@@ -32,7 +32,7 @@
 
         <TextView
             android:id="@+id/textViewWeight"
-            android:layout_below="@+id/textViewCategory"
+            android:layout_below="@id/textViewHeight"
             android:layout_toRightOf="@+id/textViewBMI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,17 +44,17 @@
         <TextView
             android:id="@+id/textViewCategory"
             android:layout_toRightOf="@+id/textViewBMI"
-            android:layout_below="@+id/textViewHeight"
+            android:layout_below="@id/textViewWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Category: "
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="45dp"
+            android:layout_marginLeft="50dp"
             android:textSize="15sp" />
         
         <TextView
             android:id="@+id/textViewAgee"
-           android:layout_below="@id/textViewWeight"
+           android:layout_below="@id/textViewCategory"
             android:layout_toRightOf="@+id/textViewBMI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -73,6 +73,15 @@
             android:layout_marginRight="10dp"
             android:textSize="15sp" />
 
+        <ImageButton
+        android:id="@+id/buttonDelete"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_toRightOf="@id/textViewHeight"
+        android:layout_marginLeft="10dp"
+         android:scaleType="fitCenter"
+        android:src="@drawable/deleteX" 
+        android:background="?android:attr/selectableItemBackgroundBorderless" />
 
 
        

@@ -16,6 +16,7 @@ using Xamarin.KotlinX.Coroutines.Intrinsics;
 using Java.Lang;
 using Xamarin.Grpc.OkHttp.Internal.Framed;
 using BMIapp.Activities;
+using AlertDialog = Android.App.AlertDialog;
 
 namespace BMIapp
 {
@@ -26,12 +27,17 @@ namespace BMIapp
         TextView username;
         ImageButton imageBtnEnterCalculator;
         ImageButton imageButtonSettings, imageButtonLog;
-
+        private const string PrefsName = "BMIappPreferences";
+        private const string DialogShownKey = "EducationalDialogShown";
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             SetContentView(Resource.Layout.Dashboard);
+
+            // Check if the dialog has already been shown
+            ISharedPreferences prefs = GetSharedPreferences(PrefsName, FileCreationMode.Private);
+            bool dialogShown = prefs.GetBoolean(DialogShownKey, false);
 
             username = FindViewById<TextView>(Resource.Id.userName);
             imageBtnEnterCalculator = FindViewById<ImageButton>(Resource.Id.imageButtonCalculate);
@@ -44,9 +50,38 @@ namespace BMIapp
             imageButtonLog.Click += ImageButtonLog_Click;
             RetrieveUsernameFromFirestore();
 
-
+            ShowEducationalDialogIfNeeded();
         }
 
+        private void ShowEducationalDialogIfNeeded()
+        {
+            // Check if the dialog has already been shown
+            ISharedPreferences prefs = GetSharedPreferences(PrefsName, FileCreationMode.Private);
+            bool dialogShown = prefs.GetBoolean(DialogShownKey, false);
+
+            if (!dialogShown)
+            {
+                ShowEducationalPurposesDialog();
+            }
+        }
+
+        private void ShowEducationalPurposesDialog()
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.SetTitle("Disclaimer");
+            builder.SetMessage("This app is for educational purposes only. Please consult with a healthcare provider for any health-related advice.");
+            builder.SetPositiveButton("OK", (sender, e) =>
+            {
+                // Update the shared preferences to indicate that the dialog has been shown
+                ISharedPreferences prefs = GetSharedPreferences(PrefsName, FileCreationMode.Private);
+                ISharedPreferencesEditor editor = prefs.Edit();
+                editor.PutBoolean(DialogShownKey, true);
+                editor.Apply();
+            });
+
+            AlertDialog dialog = builder.Create();
+            dialog.Show();
+        }
         private void ImageButtonLog_Click(object sender, EventArgs e)
         {
             Intent intent = new Intent(this, typeof(Track));

@@ -76,14 +76,16 @@
 
     
      <Button
-        android:layout_width="293dp"
-        android:layout_height="70dp"
+        android:layout_width="338dp"
+        android:layout_height="75dp"
+        android:padding="32px"
         android:layout_gravity="center"
         android:id="@+id/btnSaveResult"
         android:text="Save Results"
-        android:textColor="#000000"
+        android:elevation="30px"
+        android:textColor="@color/colorPrimary"
         android:backgroundTint="#EEEEEE"
-        android:textSize="23dp"
+        android:textSize="20dp"
         android:textAllCaps="false"
         style="@style/RoundedButton"/>
 

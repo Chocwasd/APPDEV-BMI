@@ -16,10 +16,12 @@ namespace BMIapp.Adaptor
     public class ResultsAdapter : RecyclerView.Adapter
     {
         private List<ResultModel> results;
+        private Action<int> deleteAction;
 
-        public ResultsAdapter(List<ResultModel> results)
+        public ResultsAdapter(List<ResultModel> results, Action<int> deleteAction)
         {
             this.results = results;
+            this.deleteAction = deleteAction;
         }
 
         public override int ItemCount => results.Count;
@@ -33,7 +35,7 @@ namespace BMIapp.Adaptor
             vh.TextViewAge.Text = "Age: " + results[position].Age;
             vh.TextViewBMI.Text = "BMI: " + results[position].BMI.ToString("0.00");
             vh.TextViewDate.Text = "Date: " + results[position].Date;
-            vh.TextViewCategory.Text = "BMI Category: " + results[position].BMICategory; // Set BMI category TextView
+            vh.DeleteButton.Click += (sender, e) => deleteAction(position); // Set delete action
         }
 
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
@@ -42,6 +44,12 @@ namespace BMIapp.Adaptor
             ResultViewHolder vh = new ResultViewHolder(itemView);
             return vh;
         }
+
+        public void RemoveAt(int position)
+        {
+            results.RemoveAt(position);
+            NotifyItemRemoved(position);
+        }
     }
 
     public class ResultViewHolder : RecyclerView.ViewHolder
@@ -49,19 +57,18 @@ namespace BMIapp.Adaptor
         public TextView TextViewHeight { get; private set; }
         public TextView TextViewWeight { get; private set; }
         public TextView TextViewAge { get; private set; }
-
         public TextView TextViewBMI { get; private set; }
         public TextView TextViewDate { get; private set; }
-        public TextView TextViewCategory { get; private set; }
+        public ImageButton DeleteButton { get; private set; } // Add ImageButton for delete
 
         public ResultViewHolder(View itemView) : base(itemView)
         {
             TextViewHeight = itemView.FindViewById<TextView>(Resource.Id.textViewHeight);
             TextViewWeight = itemView.FindViewById<TextView>(Resource.Id.textViewWeight);
-            TextViewBMI = itemView.FindViewById<TextView>(Resource.Id.textViewBMI);
             TextViewAge = itemView.FindViewById<TextView>(Resource.Id.textViewAgee);
+            TextViewBMI = itemView.FindViewById<TextView>(Resource.Id.textViewBMI);
             TextViewDate = itemView.FindViewById<TextView>(Resource.Id.textViewDatee);
-            TextViewCategory = itemView.FindViewById<TextView>(Resource.Id.textViewCategory);
+            DeleteButton = itemView.FindViewById<ImageButton>(Resource.Id.buttonDelete); // Find the delete button
         }
     }
 }

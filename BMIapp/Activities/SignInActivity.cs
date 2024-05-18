@@ -32,7 +32,8 @@ namespace BMIapp
         EditText textInputLayout_pass;
         Button buttonSignIn;
         TextView textView_create;
-
+        private const string PrefsName = "BMIappPreferences";
+        private const string DialogShownKey = "EducationalDialogShown";
         FirebaseAuth auth;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -87,8 +88,14 @@ namespace BMIapp
 
         public void SignInSucces()
         {
-            Intent Home = new Intent(this, typeof(Dashboard));
-            StartActivity(Home);
+            ISharedPreferences prefs = GetSharedPreferences(PrefsName, FileCreationMode.Private);
+            ISharedPreferencesEditor editor = prefs.Edit();
+            editor.PutBoolean(DialogShownKey, false); // Reset the flag so it shows the dialog after login
+            editor.Apply();
+
+            // Navigate to the Dashboard
+            Intent intent = new Intent(this, typeof(Dashboard));
+            StartActivity(intent);
             Finish();
         }
 

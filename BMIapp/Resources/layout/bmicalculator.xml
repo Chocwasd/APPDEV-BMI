@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="10dp">
 
      <RadioGroup
     android:layout_width="match_parent"
@@ -71,6 +71,7 @@
             android:layout_height="192dp"
             android:background="@drawable/hcontainer"
             android:scaleType="centerCrop"
+            
             android:layout_marginLeft="10dp"
             android:layout_marginTop="20dp"/>
 
@@ -210,15 +211,16 @@
      </RelativeLayout>
 
     <Button
-        android:layout_width="358dp"
-        android:layout_height="83dp"
+        android:layout_width="348dp"
+        android:layout_height="75dp"
+        android:padding="32px"
         android:layout_gravity="center"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="20dp"
         style="@style/RoundedButton3"
         android:id="@+id/buttonCalculate"
         android:text="Calculate BMI"
         android:textAllCaps="false"
-        android:textSize="23dp"
+        android:textSize="20dp"
         android:textStyle="bold"/> 
 
 </LinearLayout>

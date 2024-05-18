@@ -41,12 +41,13 @@ namespace BMIapp.Activities
 
             // Initialize and set up RecyclerView
             recyclerViewResults.SetLayoutManager(new LinearLayoutManager(this));
-            adapter = new ResultsAdapter(resultsList);
+            adapter = new ResultsAdapter(resultsList, DeleteItem);
             recyclerViewResults.SetAdapter(adapter);
 
             // Load results from Firestore
             LoadResultsFromFirestore();
         }
+
 
         private void ImageButtonHome_Click(object sender, EventArgs e)
         {
@@ -85,6 +86,7 @@ namespace BMIapp.Activities
                 {
                     ResultModel result = new ResultModel
                     {
+                        DocumentId = doc.Id, // Set the document ID
                         Height = doc.Get("Height") != null ? Convert.ToDouble(doc.Get("Height")) : 0,
                         Weight = doc.Get("Weight") != null ? Convert.ToDouble(doc.Get("Weight")) : 0,
                         Age = doc.Get("Age") != null ? Convert.ToInt32(doc.Get("Age")) : 0,
@@ -97,9 +99,35 @@ namespace BMIapp.Activities
                 }
 
                 adapter.NotifyDataSetChanged();
-            }));
+            }))
+ .AddOnFailureListener(new OnFailureListener((exception) =>
+  {
+      Toast.MakeText(this, "Failed to load results", ToastLength.Short).Show();
+  }));
         }
 
+        private void DeleteItem(int position)
+        {
+            string docId = resultsList[position].DocumentId; // Using the DocumentId property
+            DeleteResultFromFirestore(docId, position);
+        }
+
+        private void DeleteResultFromFirestore(string docId, int position)
+        {
+            FirebaseFirestore db = FirebaseRepository.GetFirebaseFirestore();
+            string userId = FirebaseRepository.getFirebaseAuth().CurrentUser.Uid;
+            DocumentReference resultDocRef = db.Collection("user_results").Document(userId).Collection("results").Document(docId);
+
+            resultDocRef.Delete().AddOnSuccessListener(new OnSuccessListener((querySnapshot) =>
+            {
+                adapter.RemoveAt(position);
+                Toast.MakeText(this, "Result deleted", ToastLength.Short).Show();
+            }))
+            .AddOnFailureListener(new OnFailureListener(e =>
+            {
+                Toast.MakeText(this, "Failed to delete result", ToastLength.Short).Show();
+            }));
+        }
 
         private string CalculateBMICategory(double bmi)
         {
@@ -134,5 +162,21 @@ namespace BMIapp.Activities
                 _action.Invoke(result.JavaCast<QuerySnapshot>());
             }
         }
+
+        private class OnFailureListener : Java.Lang.Object, IOnFailureListener
+        {
+            private readonly Action<Exception> _action;
+
+            public OnFailureListener(Action<Exception> action)
+            {
+                _action = action;
+            }
+
+            public void OnFailure(Java.Lang.Exception e)
+            {
+                _action.Invoke(e);
+            }
+        }
     }
 }
+

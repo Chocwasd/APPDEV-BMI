@@ -70,5 +70,10 @@ namespace BMIapp.Activities
 
             // Close the current activity to prevent going back to it after signing out
         }
+
+        public override void OnBackPressed()
+        {
+            // Do nothing when the back button is pressed
+        }
     }
 }

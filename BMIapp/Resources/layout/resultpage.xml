@@ -32,6 +32,7 @@
             android:layout_marginStart="95dp"
             android:layout_centerInParent="true"
             android:padding="25dp"
+            android:background="@drawable/progressbarbackground"
             android:progressDrawable="@drawable/circular_progress_bar"
             android:layout_centerVertical="true"
             android:layout_alignParentEnd="true"

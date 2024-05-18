@@ -280,7 +280,19 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\card_border.xml" />
+    <Content Include="deleteX.png" />
+    <AndroidResource Include="Resources\drawable\deleteX.png" />
     <Content Include="Resources\layout\SignIn1.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_background.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher_background.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_background.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_background.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_background.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_monochrome.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher_monochrome.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_monochrome.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_monochrome.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_monochrome.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

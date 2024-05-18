@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using AlertDialog = Android.App.AlertDialog;
 
 namespace BMIapp
 {
@@ -54,7 +55,7 @@ namespace BMIapp
             radioGroupGender = FindViewById<RadioGroup>(Resource.Id.radioGroupGender);
 
 
-
+            ShowGuideDialog();
 
             //Event Handling
             imageButtonBack.Click += ImageButtonBack_Click;
@@ -65,6 +66,17 @@ namespace BMIapp
             buttonCalculate.Click += ButtonCalculate_Click;
         }
 
+        private void ShowGuideDialog()
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.SetTitle("Measurement Guide");
+            builder.SetMessage("To get accurate results, please ensure to measure your height and weight properly:\n\n" +
+                               "1. Stand straight and measure your height without shoes.\n" +
+                               "2. Use a calibrated scale to measure your weight.\n" +
+                               "3. Record your measurements in the fields provided.");
+            builder.SetPositiveButton("OK", (sender, e) => { });
+            builder.Show();
+        }
         private void ButtonCalculate_Click(object sender, EventArgs e)
         {
              if (string.IsNullOrEmpty(editTextAge.Text) || string.IsNullOrEmpty(editTextHeight.Text) || string.IsNullOrEmpty(editTextWeight.Text) || radioGroupGender.CheckedRadioButtonId == -1)
@@ -143,8 +155,9 @@ namespace BMIapp
         private void ImageButtonBack_Click(object sender, EventArgs e)
         {
 
-            // Back to Dashboard
+            // Navigate back to the Dashboard
             Intent intent = new Intent(this, typeof(Dashboard));
+            intent.SetFlags(ActivityFlags.ClearTop); // Clear the stack to avoid re-triggering the dialog
             StartActivity(intent);
         }
     }
